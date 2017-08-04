@@ -1,8 +1,8 @@
 var encounterDetails = new Vue({
 	el: '#encounterDetails',
 	data: {
-		encounterLocation:'An Encounter',
-		encounterTime:'-',
+		encounterLocation:'No Data',
+		encounterTime:'.',
 		encounterEnemy:''
 	}
 });
@@ -26,11 +26,19 @@ var combatantList = new Vue({
 	data:{
 		items:[
 		],
-		isActive: false
+		isActive: false,
+		show:false
 	},
 	methods:{
 		getPic(pic){
 			return './img/'+pic+'.png';
 		}
+	}
+});
+
+var updateList = new Vue({
+	el:'#updates',
+	data:{
+		show:true
 	}
 });

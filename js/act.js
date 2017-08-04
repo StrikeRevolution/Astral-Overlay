@@ -10,18 +10,20 @@ window.addEventListener("message", function (e) {
             update(e.data.detail);
         }
 });
-        
-
 
 function update(data){
+	combatantStatus.pineapples=ActXiv.timerFrames;
 	updateEncounter(data);
 	updatePineapples(data); //Pineapples are a running joke for parsing with some friends
 }
 
 function updateEncounter(data){
 	 parseActive = parseActFormat("{isActive}", data) == "true";
-
 	 if(parseActive){
+		 if(updateList.show==true){
+			updateList.show = !updateList.show;
+			combatantList.show = !combatantList.show;
+		 }
 		 encounterDetails.encounterLocation 	=	parseActFormat("{CurrentZoneName}:",data.Encounter);
 		 encounterDetails.encounterTime 		=	parseActFormat("{duration}",data.Encounter);
 		 encounterDetails.encounterEnemy		=	parseActFormat("{title}", data.Encounter);
@@ -53,10 +55,17 @@ function updatePineapples(data){
 		//collect all data
 		var JOB 	= parseActFormat("{Job}",combatant)			
 		var NAME 	= parseActFormat("{name}", combatant);
+		//If role is dps / tank display  DH/CRIT/MAX HIT
 		var MHIT 	= parseActFormat("{maxhit}", combatant);
 		var CHIT 	= parseActFormat("{crithit%}", combatant);
 		var DHIT 	= parseActFormat("{DirectHitPct}", combatant);
 		var DPS		= parseActFormat("{encdps}",combatant);
+		
+		//If role is healer display  MAX HEAL/MAX HIT / MAX HEAL
+		if(JOB === "Min"|| JOB ==="Fsh"|| JOB==="Btn"){
+			JOB="Unk"
+		}
+		
 		fixedCombatant[combatantIndex] =[JOB,NAME,MHIT,CHIT,DHIT,DPS];
 		combatantIndex++;
 	}
