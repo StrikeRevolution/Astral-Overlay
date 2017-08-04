@@ -1,19 +1,38 @@
 var parseActive = false; //is the parse active
 
-
 document.addEventListener("onOverlayDataUpdate",function(e){
-	console.log(e.detail);
 	update(e.detail);
 });
 
-window.addEventListener("message", function (e) {
+/*window.addEventListener("message", function (e) {
         if (e.data.type === "onOverlayDataUpdate") {
 			console.log(e.data.detail);
             update(e.data.detail);
         }
+});*/
+
+document.addEventListener("onLogLine", function (e) {
+	console.log("Echo Received");
+	if(e.detail.isImported)return
+	if(e.detail.type === 'echo'){
+		console.log('you said:',e.detail.message);
+	}
+});
+var count=0;
+
+document.addEventListener("onBroadcastMessageReceive", function(e){
+	if(count==0){
+		
+	}
+});
+document.addEventListener("onMessageReceive", function(e){
+	console.log("Mini parse Event Listening");
+	toConsole(e.detail.message);
+	console.log(e.detail.message);
 });
 
 function update(data){
+	//console.log(OverlayPluginApi.broadcastMessage("Test"));
 	updateEncounter(data);
 	updatePineapples(data); //Pineapples are a running joke for parsing with some friends
 }
@@ -28,9 +47,10 @@ function updateEncounter(data){
 		 encounterDetails.encounterLocation 	=	parseActFormat("{CurrentZoneName}:",data.Encounter);
 		 encounterDetails.encounterTime 		=	parseActFormat("{duration}",data.Encounter);
 		 encounterDetails.encounterEnemy		=	parseActFormat("{title}", data.Encounter);
+		 encounterDetails.encounterMaxHit		=   parseActFormat("{maxhit}", data.Encounter);
 		 
 		 combatDetails.combatDPS				=	parseActFormat("{encdps}", data.Encounter);
-		 combatDetails.combatMaxHit				=   parseActFormat("{maxhit}", data.Encounter);
+
 		 /*{CurrentZoneName}: {title} {duration} RAID DPS: {encdps}*/
 	 }
 	 else{
@@ -61,6 +81,9 @@ function updatePineapples(data){
 		var CHIT 	= parseActFormat("{crithit%}", combatant);
 		var DHIT 	= parseActFormat("{DirectHitPct}", combatant);
 		var DPS		= parseActFormat("{encdps}",combatant);
+		
+		//if(data.timerFrames)
+		//	var Uni		= parseActFormat("{}",data.timerFrames);
 		
 		//If role is healer display  MAX HEAL/MAX HIT / MAX HEAL
 		if(JOB === "Min"|| JOB ==="Fsh"|| JOB==="Btn"){
@@ -106,4 +129,9 @@ function parseActFormat(str, dictionary) {
     } while (currentIndex < str.length);
     
     return result;
+}
+
+
+function toConsole(obj){
+	console.log(JSON.stringify(obj));
 }

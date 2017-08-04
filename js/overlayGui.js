@@ -3,21 +3,23 @@ var encounterDetails = new Vue({
 	data: {
 		encounterLocation:'No Data',
 		encounterTime:'.',
-		encounterEnemy:''
+		encounterEnemy:'',
+		encounterMaxHit:''
 	}
 });
 
 var combatDetails = new Vue({
 	el: '#combatDetails',
 	data: {
-		combatDPS: '',
-		combatMaxHit:''
+		combatDPS: ''
 	}
 });
-var combatantStatus = new Vue({
+
+
+var combatantDPS = new Vue({
 	el: '#combatantStatus',
 	data: {
-		pineapples: 'Idling'
+		combatDPS: 'Idling'
 	}
 });
 

@@ -18,7 +18,7 @@
 		}
 		html{
 			overflow:hidden;
-			background-color: rgba(0,0,0,0.6);
+			background-color: rgba(0,0,0,0.7);
 		}
 		.Test{
 			background-color:white;
@@ -63,10 +63,10 @@
 					<div class="box columns is-mobile is-marginless is-paddingless header">
 						<div id="encounterDetails" class="column">
 							<div>
-							{{encounterLocation}} {{encounterTime}}
+							{{encounterLocation}} {{encounterEnemy}} - {{encounterTime}}
 							</div>
 							<div>
-								{{encounterEnemy}}
+								{{encounterMaxHit}}
 							</div>
 						</div>
 						<div id="combatDetails" class="column">
@@ -74,7 +74,7 @@
 								{{combatDPS}}
 							</div>
 							<div>
-								{{combatMaxHit}}
+								
 							</div>
 						</div>
 					</div>
@@ -86,6 +86,20 @@
 				<div id="Updates" v-if="show">
 						<li class="fade box is-mobile is-marginless is-paddingless">
 							<div>Test</div>
+							<div>Test</div>
+						</li>
+						<li class="fade box is-mobile is-marginless is-paddingless">
+							<div>Test</div>
+							<div></div>
+						</li>
+						<li class="fade box is-mobile is-marginless is-paddingless">
+							<div>Test</div>
+							<div></div>
+						</li>
+						<li class="fade box is-mobile is-marginless is-paddingless">
+							<div>Test</div>
+						</li>
+						<li class="fade box is-mobile is-marginless is-paddingless">
 							<div>Test</div>
 						</li>
 				</div>
@@ -140,8 +154,8 @@
 			</div>
 		</div>
 	</body>
-	<script src="https://unpkg.com/vue"></script>
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.min.js"></script>-->
+	<!--<script src="https://unpkg.com/vue"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.min.js"></script>
 	<script src="js/overlayGui.js" type="text/javascript"></script>
 	<script src="js/act.js" type="text/javascript"></script>
 	<script src="js/util.js" type="text/javascript"></script>
