@@ -2,17 +2,18 @@ var parseActive = false; //is the parse active
 
 
 document.addEventListener("onOverlayDataUpdate",function(e){
+	console.log(e.detail);
 	update(e.detail);
 });
 
 window.addEventListener("message", function (e) {
         if (e.data.type === "onOverlayDataUpdate") {
+			console.log(e.data.detail);
             update(e.data.detail);
         }
 });
 
 function update(data){
-	combatantStatus.pineapples=ActXiv.timerFrames;
 	updateEncounter(data);
 	updatePineapples(data); //Pineapples are a running joke for parsing with some friends
 }
