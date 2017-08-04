@@ -2,22 +2,113 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Astral Overlay</title>
-		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css"/>
 	</head>
+	<style>
+		*{
+			color: white;
+			font-size: .9em;
+		}
+		body{
+			min-height:300px;
+		}
+		#encounterDetails, combatDetails{
+			font-size: 1em;
+		}
+		html{
+			overflow:hidden;
+			background-color: rgba(0,0,0,0.6);
+		}
+		.Test{
+			background-color:white;
+		}
+		.combatant{
+			font-size: .9em;
+			line-height:0em;
+			padding-left:0em;
+			padding-right:0em;
+		}
+		.box{
+			background-color: transparent;
+		}
+		
+	</style>
 	<body>
-		<div id="headerContainer">
-			<div id="encounterInfo">
+			<div id="headerContainer">
+				<div class="columns is-mobile">
+					<div id="encounterDetails" class="column">
+						<div>
+						{{encounterLocation}} {{encounterTime}}
+						</div>
+						<div>
+							{{encounterEnemy}}
+						</div>
+					</div>
+					<div id="combatDetails" class="column">
+						<div>
+							{{combatDPS}}
+						</div>
+						<div>
+							{{combatMaxHit}}
+						</div>
+					</div>
+				</div>
 			</div>
-			<div id="encounterDetails">
+			
+			<div id="pineapplesContainer">
+				<ul id="combatantList">
+					<li v-for="item in items" class="box columns is-mobile is-marginless is-paddingless">
+						<div class="column is-marginless is-narrow">	<!-- icon-->
+								<img :src="getPic(item[0])"> 
+						</div>
+						<div class="column">							<!-- name/max hit-->
+							<div>
+								{{item[1]}}
+							</div>
+							<div>
+								{{item[2]}}
+							</div>
+						</div>
+						<div class="column is-narrow">					<!-- crit/dhit-->
+							<div>
+								{{item[3]}} Dir Hit
+							</div>
+							<div>
+								{{item[4]}} Crit
+							</div>
+						</div>
+						<div class="column">
+							<div>
+								{{item[5]}}
+							</div>
+							<div>
+								<!--<progress class="progress is-small" value={{item[5]}} max="10000"></progress> todo-->
+							</div>
+						</div>
+						<!--0job,1name,2max,3crit,4dh,5dps-->
+						<div class="column">
+							<div>
+								TA UP!
+							</div>
+							<div>
+								10!TA UP!
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
-			<hr>
-		</div>
-		<div id="pineapplesContainer">
-		</div>
-		<div id="footerContainer">
-			<hr>
-			<div id="pineappleStatus">Idle</div>
-			//todo pineapple tab
-		</div>
+			
+			<div id="footerContainer">
+					<nav class="navbar">
+						<div class="nav-brand">
+								<img class="nav-item src="./img/Sam.png" alt="Astral-Overlay">
+						</div>
+					</nav>
+			</div>
+
 	</body>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="js/overlayGui.js" type="text/javascript"></script>
+	<script src="js/act.js" type="text/javascript"></script>
 </html>
