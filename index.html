@@ -44,6 +44,15 @@
 			width:100%
 			align-self:flex-end;
 		}
+		#nav{
+		}
+		#logo{
+		}
+		#combatantDPS{
+		}
+		#Updates .li.div{
+			flex-grow:1;
+		}
 		.header{
 			background-color: rgba(10, 8, 11, 0.7);
 		}
@@ -70,12 +79,6 @@
 							</div>
 						</div>
 						<div id="combatDetails" class="column">
-							<div>
-								{{combatDPS}}
-							</div>
-							<div>
-								
-							</div>
 						</div>
 					</div>
 				</nav>
@@ -144,12 +147,12 @@
 					</li>
 				</ul>
 			</div>
-			<!--<div id="combatantStatus">
-				{{pineapples}}
-			</div>-->
 			<div id="footerContainer">
-				<div class="box columns is-mobile is-marginless is-paddingless header">
-					<div>Astral</div>
+				<div id="nav" class="box columns is-mobile is-marginless is-paddingless header">
+					<div id="logo">Astral</div>
+					<div id="combatantDPS">
+						{{combatDPS}}
+					</div>
 				</div>
 			</div>
 		</div>

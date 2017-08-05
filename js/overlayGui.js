@@ -11,13 +11,12 @@ var encounterDetails = new Vue({
 var combatDetails = new Vue({
 	el: '#combatDetails',
 	data: {
-		combatDPS: ''
 	}
 });
 
 
 var combatantDPS = new Vue({
-	el: '#combatantStatus',
+	el: '#combatantDPS',
 	data: {
 		combatDPS: 'Idling'
 	}

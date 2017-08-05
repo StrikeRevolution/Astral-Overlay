@@ -49,7 +49,7 @@ function updateEncounter(data){
 		 encounterDetails.encounterEnemy		=	parseActFormat("{title}", data.Encounter);
 		 encounterDetails.encounterMaxHit		=   parseActFormat("{maxhit}", data.Encounter);
 		 
-		 combatDetails.combatDPS				=	parseActFormat("{encdps}", data.Encounter);
+		 combatantDPS.combatDPS				=	parseActFormat("{encdps}", data.Encounter);
 
 		 /*{CurrentZoneName}: {title} {duration} RAID DPS: {encdps}*/
 	 }
