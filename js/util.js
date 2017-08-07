@@ -1,4 +1,4 @@
-var job_details = {
+const job_details = {
 	"Acn":{
 		role: "Dps",
 		name: "Smn"
@@ -95,4 +95,5 @@ var job_details = {
 		role: "Tank",
 		name: "War"
 	}
-}
+};
+

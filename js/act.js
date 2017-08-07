@@ -74,22 +74,22 @@ function updatePineapples(data){
 		
 		
 		//collect all data
-		var JOB 	= parseActFormat("{Job}",combatant)			
+		var JOB 	= parseActFormat("{Job}",combatant);			
 		var NAME 	= parseActFormat("{name}", combatant);
+		var ROLE 	= "Unk";
 		//If role is dps / tank display  DH/CRIT/MAX HIT
 		var MHIT 	= parseActFormat("{maxhit}", combatant);
 		var CHIT 	= parseActFormat("{crithit%}", combatant);
 		var DHIT 	= parseActFormat("{DirectHitPct}", combatant);
 		var DPS		= parseActFormat("{encdps}",combatant);
 		
-		//if(data.timerFrames)
-		//	var Uni		= parseActFormat("{}",data.timerFrames);
-		
-		//If role is healer display  MAX HEAL/MAX HIT / MAX HEAL
-		if(JOB === "Min"|| JOB ==="Fsh"|| JOB==="Btn"){
-			JOB="Unk"
+		if(job_details.hasOwnProperty(JOB)){
+			JOB		= job_details[JOB].name;
+			//ROLE	= job_details[JOB].role;
 		}
-		
+		else{
+			JOB="Unk";
+		}
 		fixedCombatant[combatantIndex] =[JOB,NAME,MHIT,CHIT,DHIT,DPS];
 		combatantIndex++;
 	}
