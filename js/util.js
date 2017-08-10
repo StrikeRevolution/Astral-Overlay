@@ -59,6 +59,10 @@ const job_details = {
 		role: "Dps",
 		name: "War"
 	},
+	"Nin":{
+		role: "Dps",
+		name: "Nin"
+	},
 	"Pld":{
 		role: "Tank",
 		name: "Pld"
