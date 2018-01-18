@@ -98,6 +98,10 @@ const job_details = {
 	"War":{
 		role: "Tank",
 		name: "War"
+	},
+	"Whm":{
+		role: "Heal",
+		name: "Whm"
 	}
 };
 
